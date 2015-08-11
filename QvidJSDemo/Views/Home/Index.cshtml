@@ -1,0 +1,11 @@
+﻿@model QvidJSDemo.Models.HomeIndexViewModel
+@using System.Web.Script.Serialization;
+@{
+    ViewBag.Title = "Customers";
+}
+
+@{ string data = new JavaScriptSerializer().Serialize(Model); }
+
+<h2>Customers</h2>
+
+<div>@data</div>
