@@ -12,7 +12,7 @@ namespace QvidJSDemo.Controllers
         //
         // GET: /Orders/
 
-        public ActionResult Index(int id)
+        public ActionResult Index(int? id)
         {
             List<Customer> Customers = Helper.GetExistingCustomers();
             OrdersIndexViewModel model = new OrdersIndexViewModel();

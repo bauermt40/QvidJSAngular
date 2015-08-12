@@ -5,7 +5,7 @@ using System.Web;
 
 namespace QvidJSDemo.Models
 {
-    public class HomeIndexViewModel
+    public class HomeIndexViewModel : BaseViewModel
     {
         public List<Customer> Customers { get; set; }
     }

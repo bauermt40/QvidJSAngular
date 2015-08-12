@@ -25,13 +25,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Qvidian</a>
+                <a class="navbar-brand" href="/">Qvidian</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/customers">Customers</a>
                     </li>
                 </ul>
             </div>
@@ -39,11 +39,17 @@
         </div>
         <!-- /.container -->
     </nav>
-
-    @RenderBody()
+    <div style="width: 1200px;margin: 0 auto;">
+        @RenderBody()
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     @RenderSection("scripts", required: false)
+    <script>
+        @RenderSection("jsCode", required: false)
+    </script>
 </body>
 </html>

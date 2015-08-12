@@ -3,9 +3,22 @@
 @{
     ViewBag.Title = "Customers";
 }
-
 @{ string data = new JavaScriptSerializer().Serialize(Model); }
 
-<h2>Customers</h2>
+@section scripts {
+    <script src="~/app/Customer/customerApp.js"></script>
+    <script src="~/app/Common/custom.js"></script>
+    <script src="~/app/Customer/customerRootViewModel.js"></script>
+    <script src="~/app/Customer/customerListViewModel.js"></script>
+    <script src="~/app/Customer/customerDetailsViewModel.js"></script>
+}
 
-<div>@data</div>
+@section jsCode {
+    @*angular.bootstrap(document.getElementById('customers'), ['customers']);*@
+}
+<div ng-app="mainApp">
+    <div ng-controller="customerRootViewModel" ng-init="init(@data)">
+        <ng-view></ng-view>
+    </div>
+</div>
+

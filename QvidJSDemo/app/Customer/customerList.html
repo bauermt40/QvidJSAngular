@@ -1,0 +1,35 @@
+﻿<h3>{{ pageHeading }}</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Total Orders</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody><tr ng-repeat="customer in Customers">
+            <td><a href="customer/details/{{ customer.Id }}">{{ customer.FirstName }} {{ customer.LastName }}</a></td>
+            <td>{{ customer.Address }}</td>
+            <td>{{ customer.City }}</td>
+            <td><a href="/Orders/{{customer.Id}}">{{ customer.Orders.length }} order(s)</a></td>
+            <td>Delete</td>
+        </tr>
+    </tbody>
+</table>
+
+<form name="addCustomer" role="form" ng-submit="addNewCustomer()">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td><input type="text" class="form-control" id="customerFirstName" name="customerFirstName" placeholder="First Name" ng-model="firstName"></td>
+                <td><input type="text" class="form-control" id="customerLastName" name="customerLastName" placeholder="Last Name" ng-model="lastName"></td>
+                <td><input type="text" class="form-control" id="customerAddress" name="customerAddress" placeholder="Address" ng-model="address"></td>
+                <td><input type="text" class="form-control" id="customerCity" name="customerCity" placeholder="City" ng-model="city"></td>
+                <td><button type="submit" class="btn btn-primary bnt-sm">Add</button></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
