@@ -11,12 +11,14 @@ namespace QvidJSDemo.Controllers
     {
         //
         // GET: /Home/
-
+        
         public ActionResult Index()
         {
+            Session["Customers"] = Helper.GetExistingCustomers();
+
             HomeIndexViewModel model = new HomeIndexViewModel()
             {
-                Customers = Helper.GetExistingCustomers()
+                Customers = Session["Customers"] as List<Customer>
             };
 
             return View(model);
@@ -24,7 +26,8 @@ namespace QvidJSDemo.Controllers
 
         public JsonResult GetCustomerDetails(int id)
         {
-            List<Customer> Customers = Helper.GetExistingCustomers();
+            List<Customer> Customers = Session["Customers"] as List<Customer>;
+
             var _customer = (from c in Customers
                             where c.Id == id
                             select c).SingleOrDefault();
@@ -35,7 +38,8 @@ namespace QvidJSDemo.Controllers
         [HttpPost]
         public JsonResult UpdateCustomerData(Customer customer)
         {
-            List<Customer> Customers = Helper.GetExistingCustomers();
+            List<Customer> Customers = Session["Customers"] as List<Customer>;
+
             var _customer = (from c in Customers
                             where c.Id == customer.Id
                             select c).SingleOrDefault();
@@ -48,6 +52,47 @@ namespace QvidJSDemo.Controllers
             HomeIndexViewModel model = new HomeIndexViewModel();
             model.Customers = Customers;
             model.ResultMessage = "Customer was updated successfully.";
+
+            Session["Customers"] = Customers;
+
+            return Json(model);
+        }
+
+        [HttpPost]
+        public JsonResult AddNewCustomer(Customer customer)
+        {
+            List<Customer> Customers = Session["Customers"] as List<Customer>;
+            
+            var _customer = (from c in Customers
+                            orderby c.Id ascending
+                            select c).Last();
+
+            int _nextId = _customer.Id + 1;
+            customer.Id = _nextId;
+            customer.Orders = new List<Order>();
+
+            Customers.Add(customer);
+
+            HomeIndexViewModel model = new HomeIndexViewModel();
+            model.Customers = Customers;
+            model.ResultMessage = "Customer was added successfully.";
+
+            Session["Customers"] = Customers;
+
+            return Json(model);
+        }
+
+        [HttpPost]
+        public JsonResult DeleteCustomer(Customer customer)
+        {
+            List<Customer> Customers = Session["Customers"] as List<Customer>;
+
+            Customers.Remove(customer);
+
+            HomeIndexViewModel model = new HomeIndexViewModel();
+            model.Customers = Customers;
+
+            Session["Customers"] = Customers;
 
             return Json(model);
         }

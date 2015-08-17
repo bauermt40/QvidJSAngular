@@ -18,8 +18,9 @@ mainApp.config(['$routeProvider', '$locationProvider', function ($routeProvider,
             templateUrl: '/app/Customer/customerDetails.html',
             controller: 'customerDetailsViewModel'
         }).
-        otherwise({
-            redirectTo: '/'
+        when('/customer/orders/:Id', {
+            templateUrl: '/app/Customer/customerOrdersList.html',
+            controller: 'customerOrdersViewModel'
         });
 
       $locationProvider.html5Mode({
@@ -28,8 +29,8 @@ mainApp.config(['$routeProvider', '$locationProvider', function ($routeProvider,
       });
 }]);
 
-mainApp.factory('Customers', function () {
-    return {};
+mainApp.service("currentCustomer", function () {
+    var currentCustomer = this;
 });
 
 var customerControllers = angular.module('customerControllers', []);

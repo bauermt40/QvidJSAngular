@@ -14,8 +14,8 @@
             <td><a href="customer/details/{{ customer.Id }}">{{ customer.FirstName }} {{ customer.LastName }}</a></td>
             <td>{{ customer.Address }}</td>
             <td>{{ customer.City }}</td>
-            <td><a href="/Orders/{{customer.Id}}">{{ customer.Orders.length }} order(s)</a></td>
-            <td>Delete</td>
+            <td><a ng-click="showCustomerOrders(customer)">{{ customer.Orders.length }} order(s)</a></td>
+            <td><a ng-click="removeCustomer(customer)">Remove</a></td>
         </tr>
     </tbody>
 </table>
@@ -24,11 +24,11 @@
     <table class="table">
         <tbody>
             <tr>
-                <td><input type="text" class="form-control" id="customerFirstName" name="customerFirstName" placeholder="First Name" ng-model="firstName"></td>
-                <td><input type="text" class="form-control" id="customerLastName" name="customerLastName" placeholder="Last Name" ng-model="lastName"></td>
-                <td><input type="text" class="form-control" id="customerAddress" name="customerAddress" placeholder="Address" ng-model="address"></td>
-                <td><input type="text" class="form-control" id="customerCity" name="customerCity" placeholder="City" ng-model="city"></td>
-                <td><button type="submit" class="btn btn-primary bnt-sm">Add</button></td>
+                <td><input type="text" class="form-control" id="customerFirstName" name="customerFirstName" placeholder="First Name" ng-model="Customer.firstName"></td>
+                <td><input type="text" class="form-control" id="customerLastName" name="customerLastName" placeholder="Last Name" ng-model="Customer.lastName"></td>
+                <td><input type="text" class="form-control" id="customerAddress" name="customerAddress" placeholder="Address" ng-model="Customer.address"></td>
+                <td><input type="text" class="form-control" id="customerCity" name="customerCity" placeholder="City" ng-model="Customer.city"></td>
+                <td><button type="submit" class="btn btn-primary bnt-sm" ng-disabled="!addCustomer.customerFirstName.$dirty && !addCustomer.customerLastName.$dirty && !addCustomer.customerAddress.$dirty && !addCustomer.customerCity.$dirty">Add</button></td>
             </tr>
         </tbody>
     </table>

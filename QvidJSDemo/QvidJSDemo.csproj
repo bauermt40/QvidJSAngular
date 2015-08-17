@@ -146,6 +146,8 @@
     <Content Include="app\Customer\customerDetailsViewModel.js" />
     <Content Include="app\Customer\customerList.html" />
     <Content Include="app\Customer\customerListViewModel.js" />
+    <Content Include="app\Customer\customerOrdersList.html" />
+    <Content Include="app\Customer\customerOrdersViewModel.js" />
     <Content Include="app\Customer\customerRootViewModel.js" />
     <Content Include="app\Orders\app.js" />
     <Content Include="app\Orders\ordersindexviewmodel.js" />

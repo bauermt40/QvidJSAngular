@@ -20,6 +20,12 @@ namespace QvidJSDemo
             );
 
             routes.MapRoute(
+                name: "CustomerOrders",
+                url: "Customer/Orders/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "CustomerDetails",
                 url: "Customer/Details/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
