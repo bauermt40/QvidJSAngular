@@ -12,25 +12,9 @@ namespace QvidJSDemo.Controllers
         //
         // GET: /Orders/
 
-        public ActionResult Index(int? id)
+        public ActionResult Index()
         {
-            List<Customer> Customers = Helper.GetExistingCustomers();
-            OrdersIndexViewModel model = new OrdersIndexViewModel();
-            if (id != null)
-            {
-                var customer = (from c in Customers
-                                where c.Id == id
-                                select c).SingleOrDefault();
-
-
-                if (customer != null)
-                {
-                    model.CustomerName = customer.FirstName + " " + customer.LastName;
-                    model.Orders = customer.Orders;
-                }
-            }
-            
-            return View(model);
+            return View();
         }
 
     }

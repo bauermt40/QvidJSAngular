@@ -1,37 +1,5 @@
-﻿@model QvidJSDemo.Models.OrdersIndexViewModel
-@using System.Web.Script.Serialization;
-@{
+﻿@{
     ViewBag.Title = "Orders";
 }
-@section scripts {
-    <script src="~/app/Orders/app.js"></script>
-    <script src="~/app/Orders/ordersindexviewmodel.js"></script>
-}
-
-@{ string data = new JavaScriptSerializer().Serialize(Model); }
-
-<div ng-app="ordersApp">
-    <div ng-controller="OrdersController" ng-init="init(@data)">
-        <h2>{{ pageHeading }}</h2>
-        <h3>{{ CustomerName }}</h3>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Unit Price</th>
-                    <th>Quantity</th>
-                    <th>Order Total</th>
-                </tr>
-            </thead>
-            <tbody>          
-                <tr ng-repeat="order in Orders">
-                    <td>{{ order.Product }}</td>
-                    <td>{{ order.Price }}</td>
-                    <td>{{ order.Quantity }}</td>
-                    <td>{{ order.OrderTotal }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+<h2>Orders</h2>
 
