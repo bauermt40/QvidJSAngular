@@ -6,19 +6,19 @@
 @{ string data = new JavaScriptSerializer().Serialize(Model); }
 
 @section scripts {
-    <script src="~/app/Customer/customerApp.js"></script>
+    <script src="~/app/Customers/customersApp.js"></script>
     <script src="~/app/Common/custom.js"></script>
-    <script src="~/app/Customer/customerRootViewModel.js"></script>
-    <script src="~/app/Customer/customerListViewModel.js"></script>
-    <script src="~/app/Customer/customerDetailsViewModel.js"></script>
-    <script src="~/app/Customer/customerOrdersViewModel.js"></script>
+    <script src="~/app/Customers/customersRootViewModel.js"></script>
+    <script src="~/app/Customers/customersListViewModel.js"></script>
+    <script src="~/app/Customers/customersDetailsViewModel.js"></script>
+    <script src="~/app/Customers/customersOrdersViewModel.js"></script>
 }
 
 @section jsCode {
     @*angular.bootstrap(document.getElementById('customers'), ['customers']);*@
 }
 <div ng-app="mainApp">
-    <div ng-controller="customerRootViewModel" ng-init="init(@data)">
+    <div ng-controller="customersRootViewModel" ng-init="init(@data)">
         <ng-view></ng-view>
     </div>
 </div>

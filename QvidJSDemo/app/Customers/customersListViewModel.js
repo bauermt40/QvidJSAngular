@@ -1,4 +1,4 @@
-﻿customerControllers.controller('customerListViewModel', ['$scope', '$http', '$location',
+﻿customersControllers.controller('customersListViewModel', ['$scope', '$http', '$location',
     function ($scope, $http, $location) {
 
         $scope.pageHeading = "Customer List";
@@ -7,7 +7,7 @@
 
             $scope.Customer.Orders = [];
             var data = JSON.stringify($scope.Customer);
-            $http.post("/Home/AddNewCustomer/", data).success(function (result, status) {
+            $http.post("/Customers/AddNewCustomer/", data).success(function (result, status) {
                 //Update $scope.Customers
                 $scope.Customers = result.Customers;
 
@@ -27,7 +27,7 @@
         $scope.removeCustomer = function () {
 
             var data = JSON.stringify($scope.Customer);
-            $http.post("/Home/DeleteCustomer/", data).success(function (result, status) {
+            $http.post("/Customers/DeleteCustomer/", data).success(function (result, status) {
 
                 //Update $scope.Customers
                 $scope.Customers = result.Customers;
@@ -39,7 +39,7 @@
 
         $scope.showCustomerOrders = function (customer) {
             currentCustomer = customer;
-            $location.path('/customer/orders/' + customer.Id);
+            $location.path('/customers/orders/' + customer.Id);
         };
     }
 ]);

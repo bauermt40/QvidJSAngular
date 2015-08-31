@@ -14,33 +14,33 @@ namespace QvidJSDemo
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Orders",
-                url: "Orders/{id}",
-                defaults: new { controller = "Orders", action = "Index", id = UrlParameter.Optional }
+                name: "Invoices",
+                url: "Invoices",
+                defaults: new { controller = "Invoices", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
                 name: "CustomerOrders",
-                url: "Customer/Orders/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "Customers/Orders/{id}",
+                defaults: new { controller = "Customers", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
                 name: "CustomerDetails",
-                url: "Customer/Details/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "Customers/Details/{id}",
+                defaults: new { controller = "Customers", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
                 name: "Customers",
                 url: "Customers",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Customers", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Customers", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

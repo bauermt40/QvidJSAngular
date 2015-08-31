@@ -126,8 +126,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\InvoicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -135,22 +135,25 @@
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Helpers.cs" />
     <Compile Include="Models\HomeIndexViewModel.cs" />
+    <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\OrdersIndexViewModel.cs" />
+    <Compile Include="Models\InvoicesIndexViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\Common\custom.js" />
-    <Content Include="app\Customer\customerApp.js" />
-    <Content Include="app\Customer\customerDetails.html" />
-    <Content Include="app\Customer\customerDetailsViewModel.js" />
-    <Content Include="app\Customer\customerList.html" />
-    <Content Include="app\Customer\customerListViewModel.js" />
-    <Content Include="app\Customer\customerOrdersList.html" />
-    <Content Include="app\Customer\customerOrdersViewModel.js" />
-    <Content Include="app\Customer\customerRootViewModel.js" />
-    <Content Include="app\Orders\app.js" />
-    <Content Include="app\Orders\ordersindexviewmodel.js" />
+    <Content Include="app\Customers\customersApp.js" />
+    <Content Include="app\Customers\customersDetails.html" />
+    <Content Include="app\Customers\customersDetailsViewModel.js" />
+    <Content Include="app\Customers\customersList.html" />
+    <Content Include="app\Customers\customersListViewModel.js" />
+    <Content Include="app\Customers\customersOrdersList.html" />
+    <Content Include="app\Customers\customersOrdersViewModel.js" />
+    <Content Include="app\Customers\customersRootViewModel.js" />
+    <Content Include="app\Invoices\invoicesApp.js" />
+    <Content Include="app\Invoices\invoicesList.html" />
+    <Content Include="app\Invoices\invoicesListViewModel.js" />
+    <Content Include="app\Invoices\invoicesRootViewModel.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1023,8 +1026,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Orders\Index.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Invoices\Index.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Scripts\version.json" />
   </ItemGroup>
   <ItemGroup>

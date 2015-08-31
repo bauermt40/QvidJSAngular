@@ -1,0 +1,17 @@
+﻿<h3>{{ pageHeading }}</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Total Quantity</th>
+            <th>Total Amount</th>
+        </tr>
+    </thead>
+    <tbody><tr ng-repeat="invoice in Invoices">
+            <td>{{ invoice.CustomerName }}</td>
+            <td>{{ invoice.TotalQuantity }}</td>
+            <td>${{ invoice.TotalOrdered }}</td>
+        </tr>
+    </tbody>
+</table>

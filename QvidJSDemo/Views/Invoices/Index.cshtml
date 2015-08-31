@@ -1,0 +1,19 @@
+﻿@model QvidJSDemo.Models.InvoicesIndexViewModel
+@using System.Web.Script.Serialization;
+@{
+    ViewBag.Title = "Invoices";
+}
+@{ string data = new JavaScriptSerializer().Serialize(Model); }
+
+@section scripts {
+    <script src="~/app/Invoices/invoicesApp.js"></script>
+    <script src="~/app/Common/custom.js"></script>
+    <script src="~/app/Invoices/invoicesRootViewModel.js"></script>
+    <script src="~/app/Invoices/invoicesListViewModel.js"></script>
+}
+
+<div ng-app="mainApp">
+    <div ng-controller="invoicesRootViewModel" ng-init="init(@data)">
+        <ng-view></ng-view>
+    </div>
+</div>

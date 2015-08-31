@@ -1,18 +1,14 @@
 ﻿var mainApp = angular.module('mainApp', [
   'ngRoute',
-  'orderControllers'
+  'invoicesControllers'
 ]);
 
 mainApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
     $routeProvider.
-        when('/Orders/', {
-            templateUrl: '/app/Orders/customerlist.html',
-            controller: 'customerdetailsviewmodel'
-        }).
-        when('/customer/details/:Id', {
-            templateUrl: '/app/Home/customerdetails.html',
-            controller: 'customerdetailsviewmodel'
+        when('/invoices', {
+            templateUrl: '/app/Invoices/invoicesList.html',
+            controller: 'invoicesListViewModel'
         }).
         otherwise({
             redirectTo: '/'
@@ -28,4 +24,4 @@ mainApp.factory('Orders', function () {
     return {};
 });
 
-var orderControllers = angular.module('orderControllers', []);
+var invoicesControllers = angular.module('invoicesControllers', []);

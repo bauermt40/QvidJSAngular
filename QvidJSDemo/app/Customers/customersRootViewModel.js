@@ -1,4 +1,4 @@
-﻿customerControllers.controller('customerRootViewModel', ['$scope', function ($scope) {
+﻿customersControllers.controller('customersRootViewModel', ['$scope', function ($scope) {
 
     $scope.init = function (data) {
         //This function is sort of private constructor for controller

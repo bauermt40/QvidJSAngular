@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace QvidJSDemo.Controllers
 {
-    public class HomeController : Controller
+    public class CustomersController : Controller
     {
         //
         // GET: /Home/
